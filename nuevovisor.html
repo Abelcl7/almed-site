@@ -1,0 +1,245 @@
+<html lang="es">
+<head>
+  <!-- Metadatos básicos -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Visor de algoritmos</title>
+
+  <!-- CSS principal -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/estilos2.css" />
+
+  <!-- Íconos -->
+  <link rel="icon" type="image/svg+xml" href="/img/icons/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon-152x152.png" />
+  <link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#3D6FB6" />
+  <link rel="icon" href="https://protocolos.fesemi.org/img/icons/android-chrome-512x512.png" sizes="512x512" />
+  <link rel="icon" href="https://protocolos.fesemi.org/img/icons/android-chrome-192x192.png" sizes="192x192" />
+  <!--[if IE]><link rel="icon" href="/favicon.png" /><![endif]-->
+
+  <!-- Manifest y tema -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#3D6FB6" />
+
+  <!-- PWA / WebApp -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="ProtocolosSemi" />
+  <meta name="msapplication-TileImage" content="/img/icons/msapplication-icon-144x144.png" />
+  <meta name="msapplication-TileColor" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="x5-orientation" content="portrait" />
+  <meta name="screen-orientation" content="portrait" />
+  <meta name="x5-page-mode" content="app" />
+  <meta name="browsermode" content="application" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9YPKJJWP4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-L9YPKJJWP4");
+  </script>
+
+  <!-- JS principal -->
+  <script defer src="/js/chunk-vendors.11a51760.js"></script>
+  <script defer src="/js/app.40b6f623.js"></script>
+</head>
+
+
+  <body>
+    <script
+      async=""
+      src="https://unpkg.com/pwacompat"
+      crossorigin="anonymous"
+    ></script>
+    <noscript
+      ><strong
+        >We're sorry but ProtocolosSemi doesn't work properly without JavaScript
+        enabled. Please enable it to continue.</strong
+      ></noscript
+    >
+
+        <div class="grid grid-flow-row-dense grid-cols-6">
+          <div class="col-span-5">
+          </div>
+          <div class="icon text-center flex m-auto align-center">
+          </div>
+        </div>
+        <form>
+          <div class="relative my-3">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none"
+            >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </form>
+
+    <!--Algoritmo 1-->        
+
+<body>
+  <div class="container">
+    <h1 id="titulo">Cargando algoritmo...</h1>
+
+    <section class="info-section" id="info"></section>
+
+    <section>
+      <h2></h2>
+      <div class="diagram-wrapper">
+        <pre class="mermaid" id="mermaid-diagram">graph TD; A[Esperando datos...]</pre>
+      </div>
+    </section>
+  </div>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: false });
+
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+
+    if (!id) {
+      document.getElementById('titulo').textContent = "Error: Falta el parámetro ?id=";
+    } else {
+      fetch(`/algoritmos/${id}.json`)
+        .then(response => {
+          if (!response.ok) throw new Error("No se encontró el algoritmo.");
+          return response.json();
+        })
+        .then(data => {
+    document.getElementById('titulo').innerHTML = `<span style="font-weight:600; text-transform:uppercase; font-size:21px;">${data.nombre || 'Algoritmo'}</span>`;  
+
+        // Mostrar metadatos
+        const info = document.getElementById('info');
+        info.innerHTML = `
+        <p><strong>ID:</strong> ${data.id}</p>
+        <p><strong>Nombre:</strong> ${data.nombre}</p>
+        <p><strong>Descripción:</strong> ${data.descripcion}</p>
+        <p><strong>Categoría:</strong> ${data.categoria}</p>
+        <p><strong>Autor:</strong> ${data.autor}</p>
+        <p><strong>Versión:</strong> ${data.version}</p>
+        <p><strong>Fecha:</strong> ${data.fecha}</p>
+        <p><strong>Especialidad:</strong> ${data.especialidad}</p>
+        <p><strong>Subespecialidad:</strong> ${data.subespecialidad}</p>
+        <p><strong>Tema:</strong> ${data.tema}</p>
+        <p><strong>Ámbito de uso:</strong> ${data.ambito_uso}</p>
+        <p><strong>Nivel de atención:</strong> ${data.nivel_atencion}</p>
+        <p><strong>Fuente principal:</strong> ${data.fuente_principal}</p>
+        <p><strong>Otras fuentes:</strong> ${data.otras_fuentes.join(", ")}</p>
+        <p><strong>Nivel de evidencia:</strong> ${data.nivel_evidencia}</p>
+        <p><strong>Grado de recomendación:</strong> ${data.grado_recomendacion}</p>
+        <p><strong>Revisión por:</strong> ${data.revision_por}</p>
+        <p><strong>Fecha de revisión:</strong> ${data.fecha_revision}</p>
+        <p><strong>Notas:</strong> ${data.notas}</p>
+        <p><strong>Criterios de inclusión:</strong> ${data.criterios_inclusion.join(", ")}</p>
+        <p><strong>Criterios de exclusión:</strong> ${data.criterios_exclusion.join(", ")}</p>
+        <p><strong>Datos de entrada:</strong> ${data.datos_entrada.join(", ")}</p>
+        <p><strong>Decisiones clínicas:</strong> ${data.decisiones_clinicas.join(", ")}</p>
+        <p><strong>Método de validación:</strong> ${data.metodo_validacion}</p>
+        <p><strong>Sensibilidad:</strong> ${data.sensibilidad}</p>
+        <p><strong>Especificidad:</strong> ${data.especificidad}</p>
+        <p><strong>Valor predictivo positivo (VP+):</strong> ${data["VP+"]}</p>
+        <p><strong>Valor predictivo negativo (VPN):</strong> ${data.VPN}</p>
+        <p><strong>Autoría institucional:</strong> ${data.autoria_institucional}</p>
+        <p><strong>Licencia:</strong> ${data.licencia}</p>
+        <p><strong>Uso autorizado para:</strong> ${data.uso_autorizado_para}</p>
+        <p><strong>Limitaciones:</strong> ${data.limitaciones}</p>
+        `;
+
+
+// Función para insertar saltos de línea en nodos de decisión largos
+function ajustarSaltosEnNodos(codigoMermaid, maxLength = 30) {
+  const formatear = (texto) => {
+    const palabras = texto.split(" ");
+    let linea = "";
+    let resultado = [];
+
+    for (let palabra of palabras) {
+      if ((linea + " " + palabra).trim().length > maxLength) {
+        resultado.push(linea.trim());
+        linea = palabra;
+      } else {
+        linea += " " + palabra;
+      }
+    }
+
+    if (linea) resultado.push(linea.trim());
+    return resultado.join("\\n");
+  };
+
+  // Solo reemplazar texto dentro de {} (decisiones)
+  codigoMermaid = codigoMermaid.replace(/(\w+\s*[{])([^{}]+)([}])/g, (_, inicio, contenido, fin) => {
+    return `${inicio}${formatear(contenido)}${fin}`;
+  });
+
+  // Solo reemplazar texto dentro de [] (nodos normales)
+  codigoMermaid = codigoMermaid.replace(/(\w+\s*[\[])([^\[\]]+)([\]])/g, (_, inicio, contenido, fin) => {
+    return `${inicio}${formatear(contenido)}${fin}`;
+  });
+
+  return codigoMermaid;
+}
+
+// Mostrar diagrama con texto ajustado
+const mermaidEl = document.getElementById('mermaid-diagram');
+const ajustado = ajustarSaltosEnNodos(data.mermaid);
+mermaidEl.textContent = ajustado;
+mermaid.run();
+
+        })
+        .catch(error => {
+          document.getElementById('titulo').textContent = "Error al cargar el algoritmo";
+          document.getElementById('info').innerHTML = `<p>${error.message}</p>`;
+        });
+    }
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 1.5rem;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f7f9fc;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .info-section p {
+      margin: 0.3rem 0;
+    }
+
+    .diagram-wrapper {
+      overflow: auto;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 1rem;
+      max-height: 80vh;
+    }
+
+    .mermaid {
+      min-width: 1200px;
+      font-size: 8px;
+    }
+  </style>
+</body>
+    </div>
+  </body>
+</html>

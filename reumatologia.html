@@ -1,0 +1,239 @@
+<html lang="es">
+<head>
+  <!-- Metadatos básicos -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Reumatología</title>
+
+  <!-- CSS principal -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/estilos2.css" />
+
+  <!-- Íconos -->
+  <link rel="icon" type="image/svg+xml" href="/img/icons/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/icons/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon-152x152.png" />
+  <link rel="mask-icon" href="/img/icons/safari-pinned-tab.svg" color="#3D6FB6" />
+  <link rel="icon" href="https://protocolos.fesemi.org/img/icons/android-chrome-512x512.png" sizes="512x512" />
+  <link rel="icon" href="https://protocolos.fesemi.org/img/icons/android-chrome-192x192.png" sizes="192x192" />
+  <!--[if IE]><link rel="icon" href="/favicon.png" /><![endif]-->
+
+  <!-- Manifest y tema -->
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#3D6FB6" />
+
+  <!-- PWA / WebApp -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="ProtocolosSemi" />
+  <meta name="msapplication-TileImage" content="/img/icons/msapplication-icon-144x144.png" />
+  <meta name="msapplication-TileColor" content="#000000" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="x5-orientation" content="portrait" />
+  <meta name="screen-orientation" content="portrait" />
+  <meta name="x5-page-mode" content="app" />
+  <meta name="browsermode" content="application" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L9YPKJJWP4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-L9YPKJJWP4");
+  </script>
+
+  <!-- JS principal -->
+  <script defer src="/js/chunk-vendors.11a51760.js"></script>
+  <script defer src="/js/app.40b6f623.js"></script>
+</head>
+
+
+  <body>
+    <script
+      async=""
+      src="https://unpkg.com/pwacompat"
+      crossorigin="anonymous"
+    ></script>
+    <noscript
+      ><strong
+        >We're sorry but ProtocolosSemi doesn't work properly without JavaScript
+        enabled. Please enable it to continue.</strong
+      ></noscript
+    >
+    <div id="app" data-v-app="">
+      <header
+        class="fixed w-full flex justify-between items-center py-4 px-6 bg-white z-50 top-0 left-0 max-w-2xl mx-auto inset-x-0"
+      >
+        <a
+          ><button
+            type="button"
+            class="w-[34px] h-[34px] relative inline-flex items-center justify-center text-white rounded-lg focus:outline-none bg-gradient-to-r from-principal to-secondary"
+          >
+            <i class="text-sm fa-solid fa-chevron-left"></i></button
+        ></a>
+        <div class="notifications">
+          <a
+            href="#/recientes"
+            class="w-[34px] h-[34px] relative flex justify-center items-center text-center text-white rounded-lg focus:outline-none bg-gradient-to-r from-principal to-secondary"
+            ><i class="text-lg fa-solid fa-bell"></i>
+            <div
+              class="bg-rojo absolute inline-flex items-center justify-center w-3 h-3 text-xs font-bold text-white rounded-full -top-1 -end-1"
+            ></div
+          ></a>
+        </div>
+      </header>
+      <div
+        class="px-6 bg-gradient-to-b from-white to-lightgray mt-[68px] pb-[85px] min-h-[calc(100vh-130px)] max-w-2xl mx-auto"
+      >
+        <div class="grid grid-flow-row-dense grid-cols-6">
+          <div class="col-span-5">
+            <h1 class="text-[21px] font-semibold uppercase">
+              Reumatología
+            </h1>
+          </div>
+          <div class="icon text-center flex m-auto align-center">
+            <div
+              class="background rounded-full w-[40px] h-[40px] grid items-center"
+              style="
+                background-image: linear-gradient(
+                  135deg,
+                  rgb(8, 168, 58) 0%,
+                  rgb(146, 211, 47) 100%
+                );
+              "
+            >
+              <img
+                class="m-auto"
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAZCAYAAAArK+5dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAFnSURBVHgBtVWBcYMwDJQzARuUDcoGZYRs0HQDNigbhA2SDZpO0HYC0gloJ3A3cPXhuTi+EEzO/N0fPmPrJVuSRQjnXKa0yp0yl9RQo6U7o4OgJMBqZD5XbiUlcCzuEjZVFL6IDUTKK2twlFseo4928v70Zx1s2nj/MhoAPpQV/pONJwgnn8cEMnpyIcDjg4G3Wx4GDq7HFsHYfhCgKIxXEgHumb5DeKAslK/+UUWKNBSpphYimlpmglEDBxMa1E8pfR0clAjxaIz5k5lAIsDOylPEREvjjRo9YnyPceKXtk4CLS+yCLy4u9CGRPFvfSMJwVrZDQMnCcHksKc75aCTRPDqqBgmXGqBcAIRWFkISFOkI9L0QRYABN45fpEl4M5v8ewHhnun97C3OxZclAizZS2x8Hp5d6vo6HUVazxsdrV+8Brlyh/pE+BbiX6EyB6VX8p9bI8yVzzMpe+oT54QRNBVP2Um/gG4GPIVT4/cpAAAAABJRU5ErkJggg=="
+                alt="doyn"
+              />
+            </div>
+          </div>
+        </div>
+        <form>
+          <div class="relative my-3">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-4 pointer-events-none"
+            >
+              <svg
+                class="w-4 h-4 text-gray-400"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+                ></path>
+              </svg>
+            </div>
+            <input
+              type="search"
+              id="search"
+              class="block w-full p-4 ps-11 text-sm text-gray-900 border border-gray-200 rounded-lg bg-gray-200"
+              placeholder="Busca protocolos"
+            />
+          </div>
+        </form>
+
+    <!--Algoritmo 1-->        
+
+        <ul class="bg-white rounded-lg shadow-lg">
+<li class="font-semibold mx-[20px] pt-[20px] last:border-0 border-b border-[#666666]">
+  <a href="#/protocolo/tratamiento-dm2">
+    <div class="grid grid-cols-4 pb-[20px]">
+      <div class="col-span-3 text-[20px] leading-6 text-left">
+        Actualización 2024 para el tratamiento de la DM2 del grupo de
+        diabetes, obesidad y nutrición
+      </div>
+      <div class="col-span-1 flex justify-center items-center">
+        <div
+          class="w-[34px] h-[34px] inline-flex items-center justify-center rounded-lg border-[1px]"
+          style="border-color: #08A83A"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="#08A83A"
+            class="w-5 h-5"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </a>
+</li>
+
+    <!--Algoritmo 2--> 
+
+        </ul>
+      </div>
+      <footer
+        class="fixed bottom-0 left-0 z-50 w-full bg-white max-w-2xl mx-auto inset-x-0"
+      >
+        <!---->
+        <div
+          class="flex justify-center h-full mx-auto font-medium pb-7 border-t border-midgray"
+        >
+          <a href="#/" class="inline-flex flex-col items-center group w-20 mx-1"
+            ><div
+              class="h-1 w-full group-[.active]:bg-gradient-to-r from-principal to-secondary"
+            ></div>
+            <i
+              class="mt-2 group-[.active]:bg-gradient-to-r from-principal to-secondary inline-block text-darkgray group-[.active]:text-transparent group-[.active]:bg-clip-text text-xl fa-solid fa-house"
+            ></i
+            ><span class="text-sm text-darkgray group-[.active]:text-black"
+              >INICIO</span
+            ></a
+          ><a
+            href="#/busqueda"
+            class="inline-flex flex-col items-center group w-20 mx-1"
+            ><div
+              class="h-1 w-full group-[.active]:bg-gradient-to-r from-principal to-secondary"
+            ></div>
+            <i
+              class="mt-2 group-[.active]:bg-gradient-to-r from-principal to-secondary inline-block text-darkgray group-[.active]:text-transparent group-[.active]:bg-clip-text text-xl fa-solid fa-sliders"
+            ></i
+            ><span class="text-sm text-darkgray group-[.active]:text-black"
+              >FILTRAR</span
+            ></a
+          ><a
+            href="#/contacto"
+            class="inline-flex flex-col items-center group w-20 mx-1"
+            ><div
+              class="h-1 w-full group-[.active]:bg-gradient-to-r from-principal to-secondary"
+            ></div>
+            <i
+              class="mt-2 group-[.active]:bg-gradient-to-r from-principal to-secondary inline-block text-darkgray group-[.active]:text-transparent group-[.active]:bg-clip-text text-xl fa-solid fa-location-dot"
+            ></i
+            ><span class="text-sm text-darkgray group-[.active]:text-black"
+              >CONTACTO</span
+            ></a
+          >
+        </div>
+      </footer>
+      <button
+        id="to-top-button"
+        class="fixed z-40 bottom-[92px] right-2 flex justify-center items-center border-0 w-12 h-12 rounded-lg shadow-md bg-black text-white text-lg font-semibold transition-colors duration-300 opacity-20 hidden"
+      >
+        <i class="text-sm fa-solid fa-chevron-up"></i></button
+      ><!---->
+    </div>
+  </body>
+</html>

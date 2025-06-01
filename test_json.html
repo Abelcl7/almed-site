@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Leer JSON y Renderizar Mermaid</title>
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    window.mermaid = mermaid;
+    mermaid.initialize({ startOnLoad: false });
+  </script>
+</head>
+<body>
+  <h1>Contenido de prueba.json</h1>
+
+  <h2>Contenido JSON (formateado)</h2>
+  <pre id="salida"></pre>
+
+  <h2>Diagrama Mermaid generado</h2>
+  <div id="diagrama"></div>
+
+  <script>
+    fetch("cadyehh_001.json")
+      .then(res => res.json())
+      .then(data => {
+        // Mostrar JSON formateado
+        const salida = document.getElementById("salida");
+        salida.textContent = JSON.stringify(data, null, 2);
+
+        // Crear contenedor Mermaid
+        const diagrama = document.getElementById("diagrama");
+        const mermaidDiv = document.createElement("div");
+        mermaidDiv.className = "mermaid";
+        mermaidDiv.textContent = data.mermaid;
+        diagrama.appendChild(mermaidDiv);
+
+        // Renderizar Mermaid
+        setTimeout(() => {
+          mermaid.init(undefined, mermaidDiv);
+        }, 100);
+      })
+      .catch(err => {
+        console.error("Error al cargar el JSON:", err);
+        document.getElementById("salida").textContent = "Error cargando JSON.";
+      });
+  </script>
+</body>
+</html>

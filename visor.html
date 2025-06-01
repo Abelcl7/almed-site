@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Visualizador de Algoritmo</title>
+  <link rel="stylesheet" href="css/estilo.css" />
+  <style>
+    .mermaid {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    #volver {
+      display: inline-block;
+      margin: 1rem 0;
+      padding: 0.5rem 1rem;
+      background-color: #004d40;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+    }
+    #volver:hover {
+      background-color: #00796b;
+    }
+  </style>
+
+  <script type="module">
+    import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+    window.mermaid = mermaid;
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: "default",
+      themeVariables: {
+        fontSize: "16px",
+        fontFamily: "Arial",
+        primaryColor: "#e0f2f1",
+        primaryTextColor: "#004d40",
+        lineColor: "#004d40",
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1 id="titulo">Cargando...</h1>
+  </header>
+
+  <main>
+    <nav id="menu">
+      <a id="volver" href="index.html">← Volver al índice</a>
+    </nav>
+
+    <section id="contenido">
+      <p id="descripcion"></p>
+      <p id="fuente_principal"></p>
+      <div id="diagrama"><p>Cargando diagrama...</p></div>
+      <p id="notas" style="margin-top: 2rem; font-style: italic;"></p>
+    </section>
+  </main>
+
+  <script>
+    function getParam(name) {
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name);
+    }
+
+    const id = getParam("id");
+
+    if (!id) {
+      document.getElementById("titulo").textContent = "Algoritmo no especificado.";
+      document.getElementById("diagrama").innerHTML = "<p>No se puede cargar el algoritmo sin un ID.</p>";
+    } else {
+      fetch(`algoritmos/${id}.json`)
+        .then(res => {
+          if (!res.ok) throw new Error("No encontrado");
+          return res.json();
+        })
+        .then(data => {
+          document.getElementById("titulo").textContent = data.nombre || "Algoritmo sin título";
+          document.getElementById("descripcion").textContent = data.descripcion || "";
+          document.getElementById("notas").textContent = data.notas || "";
+
+          const mermaidDiv = document.createElement("div");
+          mermaidDiv.className = "mermaid";
+          mermaidDiv.textContent = data.mermaid;
+
+          const contenedor = document.getElementById("diagrama");
+          contenedor.innerHTML = "";
+          contenedor.appendChild(mermaidDiv);
+
+          setTimeout(() => {
+            mermaid.init(undefined, mermaidDiv);
+          }, 100);
+        })
+        .catch(err => {
+          document.getElementById("titulo").textContent = "Algoritmo no encontrado.";
+          document.getElementById("diagrama").innerHTML = "<p>Error cargando el archivo.</p>";
+          console.error(err);
+        });
+    }
+  </script>
+</body>
+</html>
