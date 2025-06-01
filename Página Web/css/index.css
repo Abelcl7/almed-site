@@ -1,0 +1,149 @@
+ul li {
+    list-style-type: none;
+  }
+  
+
+
+/* Tarjeta general */
+.card {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    padding: 20px 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilo solo para tarjeta de Infectología */
+  .card-infectologia {
+    background-image: linear-gradient(
+      91.87deg,
+      rgb(237, 109, 84) 0%,
+      rgb(232, 144, 63) 100%
+    );
+  }
+  
+  .card-hematologia {
+    background-image: linear-gradient(
+      91.87deg,
+      rgb(87, 147, 97) 0%,
+      rgb(159, 194, 55) 100%
+    );
+  }
+
+  .card-cardiologia {
+    background-image: linear-gradient(
+      91.87deg,
+      rgb(8, 168, 58) 0%,
+      rgb(146, 211, 47) 100%
+    );
+  }
+  
+
+  .card-endocrinologia {
+    background-image: linear-gradient(
+      91.87deg,
+      rgb(62, 106, 172) 0%,
+      rgb(188, 14, 43) 100%
+    );
+  }
+
+.card-mediointerno {
+    background-image: linear-gradient(
+      91.87deg,
+      rgb(8, 168, 58) 0%,
+      rgb(146, 211, 47) 100%
+    );
+  }
+
+  .card-neumologia {
+    background-image: linear-gradient(
+      91.87deg,
+      rgb(87, 147, 97) 0%,
+      rgb(159, 194, 55) 100%
+    );
+  }
+  
+  .card-reumatologia {
+    background-image: linear-gradient(
+      91.87deg,
+      rgb(136, 21, 22) 0%,
+      rgb(10, 73, 124) 100%
+    );
+  }
+  
+
+  /* Columna del título y descripción */
+  .card-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 19px;
+    color: white;
+    line-height: 20px;
+  }
+  
+  .card-description {
+    font-weight: 500;
+    font-size: 15px;
+    color: white;
+  }
+  
+  /* Icono lateral */
+  .card-icon-container {
+    width: 44px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 0 6px;
+  }
+  
+  .card-icon-number {
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    padding-right: 6px;
+  }
+
+  .header-principal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 50;
+  }
+  
+  .logo {
+    height: 34px;
+  }
+  
+  .notif-btn {
+    width: 34px;
+    height: 34px;
+    background: linear-gradient(to right, #3D6FB6, #5ca8c8); /* colores de tu estilo */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    text-decoration: none;
+    position: relative;
+  }
+  
+  .notif-dot {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+  }

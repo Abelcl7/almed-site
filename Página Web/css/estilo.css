@@ -1,0 +1,99 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #004080;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.4rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+main {
+  display: flex;
+  flex: 1;
+}
+
+/* Menú lateral */
+nav#menu {
+  width: 250px;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  padding: 1rem;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+}
+
+nav#menu h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #004080;
+}
+
+nav#menu ul {
+  list-style: none;
+}
+
+nav#menu li {
+  padding: 0.5rem 0;
+}
+
+nav#menu li a {
+  color: #004080;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+nav#menu li a:hover {
+  text-decoration: underline;
+}
+
+/* Contenido principal */
+section#contenido {
+  flex: 1;
+  padding: 2rem;
+}
+
+.notas {
+  margin-top: 2rem;
+  font-style: italic;
+  color: #2c3e50;
+  background-color: #eafaf1;
+  padding: 1rem;
+  border-left: 4px solid #27ae60;
+  border-radius: 0.25rem;
+}
+
+.boton-volver {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #27ae60;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #1e874b;
+}
